@@ -1,11 +1,16 @@
 {
   "web" : {
-    "number" : 2,
-    "command" : "web.js",
+    "number": 2,
+    "command": "web.js",
     "port": 3000
   },
-  "worker" : {
-    "number" : 1,
-    "command" : "worker.js"
+  "worker": {
+    "number": 1,
+    "command": "worker.js"
+  },
+  "dev-proc": {
+    "number": 1,
+    "mode": "development",
+    "command": "dev-proc.js"
   }
 }

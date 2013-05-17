@@ -9,4 +9,6 @@ var junction = require('../')
       .describe('f', 'Cluster plan')
       .argv
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
 junction(JSON.parse(fs.readFileSync(argv.file)), path.dirname(argv.file))

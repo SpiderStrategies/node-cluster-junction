@@ -10,7 +10,12 @@ module.exports = function (plan, base) {
 
   var work = Object.keys(plan).reduce(function (cluster, name) {
     var n = plan[name].number || 1
-    if (n) { cluster[name] = n }
+      , mode = plan[name].mode || process.env.NODE_ENV
+
+    if (mode === process.env.NODE_ENV) {
+      cluster[name] = n
+    }
+
     return cluster
   }, {})
 
