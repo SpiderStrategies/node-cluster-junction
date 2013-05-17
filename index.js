@@ -1,9 +1,12 @@
 var forever = require('forever-monitor')
+  , path = require('path')
 
-module.exports = function (plan) {
+module.exports = function (plan, base) {
   if (!plan || typeof plan !== 'object') {
     throw new Error('Plan needed')
   }
+
+  base = base || ''
 
   var work = Object.keys(plan).reduce(function (cluster, name) {
     var n = plan[name].number || 1
@@ -12,7 +15,7 @@ module.exports = function (plan) {
   }, {})
 
   Object.keys(work).forEach(function (name) {
-    var command = plan[name].command
+    var command = path.join(process.cwd(), base, plan[name].command)
 
     for (var i = 0; i < work[name]; i++) {
       var opts = {
