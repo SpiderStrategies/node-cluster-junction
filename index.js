@@ -20,8 +20,6 @@ module.exports = function (plan, base) {
     for (var i = 0; i < work[name]; i++) {
       var opts = {
         silent: process.env.NODE_ENV === 'production',
-        watch: process.env.NODE_ENV !== 'production',
-        watchDirectory: './',
         sourceDir: path.join(process.cwd(), base)
       }
 
