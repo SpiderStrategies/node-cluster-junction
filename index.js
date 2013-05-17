@@ -15,13 +15,14 @@ module.exports = function (plan, base) {
   }, {})
 
   Object.keys(work).forEach(function (name) {
-    var command = path.join(process.cwd(), base, plan[name].command)
+    var command = plan[name].command
 
     for (var i = 0; i < work[name]; i++) {
       var opts = {
         silent: process.env.NODE_ENV === 'production',
         watch: process.env.NODE_ENV !== 'production',
-        watchDirectory: './'
+        watchDirectory: './',
+        sourceDir: path.join(process.cwd(), base)
       }
 
       if (plan[name].port) {
