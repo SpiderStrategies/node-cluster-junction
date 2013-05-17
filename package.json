@@ -1,0 +1,30 @@
+{
+  "name": "cluster-junction",
+  "version": "0.0.1",
+  "description": "Start and monitor a cluster of processes",
+  "main": "index.js",
+  "bin": {
+    "cluster-junction": "bin/cmd.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SpiderStrategies/node-cluster-junction.git"
+  },
+  "keywords": [
+    "cluster",
+    "processes",
+    "forever",
+    "monitor"
+  ],
+  "author": "Nathan Bowser <nathan.bowser@spiderstrategies.com>",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "04cc52a259941e3fe9240811787e291f2a93e8dd",
+  "dependencies": {
+    "forever-monitor": "~1.2.2",
+    "optimist": "~0.4.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "web" : {
+    "number" : 2,
+    "command" : "web.js",
+    "port": 3000
+  },
+  "worker" : {
+    "number" : 1,
+    "command" : "worker.js"
+  }
+}
