@@ -1,12 +1,13 @@
 var forever = require('forever-monitor')
   , path = require('path')
 
-module.exports = function (plan, base) {
+module.exports = function (plan, conf) {
   if (!plan || typeof plan !== 'object') {
     throw new Error('Plan needed')
   }
 
-  base = base || ''
+  conf = conf || {}
+  conf.base = conf.base || ''
 
   var work = Object.keys(plan).reduce(function (cluster, name) {
     var n = plan[name].number || 1
@@ -25,7 +26,7 @@ module.exports = function (plan, base) {
     for (var i = 0; i < work[name]; i++) {
       var opts = {
         silent: process.env.NODE_ENV === 'production',
-        sourceDir: path.join(process.cwd(), base)
+        sourceDir: path.join(process.cwd(), conf.base)
       }
 
       if (plan[name].port) {

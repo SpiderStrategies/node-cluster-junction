@@ -11,4 +11,4 @@ var junction = require('../')
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
-junction(JSON.parse(fs.readFileSync(argv.file)), path.dirname(argv.file))
+junction(JSON.parse(fs.readFileSync(argv.file)), { base: path.dirname(argv.file) })
