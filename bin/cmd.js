@@ -7,8 +7,10 @@ var junction = require('../')
       .demand('f')
       .alias('f', 'file')
       .describe('f', 'Cluster plan')
+      .alias('w', 'watch')
+      .describe('w', 'Watch for file changes')
       .argv
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
-junction(JSON.parse(fs.readFileSync(argv.file)), { base: path.dirname(argv.file) })
+junction(JSON.parse(fs.readFileSync(argv.file)), { base: path.dirname(argv.file), watch: argv.watch })
