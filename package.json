@@ -1,6 +1,6 @@
 {
   "name": "cluster-junction",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Start and monitor a cluster of processes",
   "main": "index.js",
   "bin": {

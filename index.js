@@ -25,7 +25,7 @@ module.exports = function (plan, conf) {
 
     for (var i = 0; i < work[name]; i++) {
       var opts = {
-        silent: process.env.NODE_ENV === 'production',
+        silent: conf.silent,
         sourceDir: path.join(process.cwd(), conf.base),
         watch: conf.watch
       }
