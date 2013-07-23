@@ -9,6 +9,8 @@ module.exports = function (plan, conf) {
   conf = conf || {}
   conf.base = conf.base || ''
 
+  var listeners = 0
+
   var work = Object.keys(plan).reduce(function (cluster, name) {
     var n = plan[name].number || 1
       , mode = plan[name].mode || process.env.NODE_ENV
@@ -17,8 +19,14 @@ module.exports = function (plan, conf) {
       cluster[name] = n
     }
 
+    listeners += n
+
     return cluster
   }, {})
+
+  // Sets the number of listeners to equal how many child processes we're spawning.
+  process.stdout.setMaxListeners(listeners)
+  process.stderr.setMaxListeners(listeners)
 
   Object.keys(work).forEach(function (name) {
     var command = plan[name].command
